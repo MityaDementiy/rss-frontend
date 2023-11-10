@@ -7,8 +7,8 @@ enum InterfaceTexts {
 
 <template>
   <form class="form">
-    <input type="url" :placeholder="InterfaceTexts.Placeholder" />
-    <button type="submit">{{ InterfaceTexts.AddButton }}</button>
+    <input type='url' :placeholder='InterfaceTexts.Placeholder' />
+    <button type='submit'>{{ InterfaceTexts.AddButton }}</button>
   </form>
 </template>
 
@@ -16,6 +16,8 @@ enum InterfaceTexts {
 .form {
   display: flex;
   gap: 1rem;
+
+  margin-bottom: 1rem;
 }
 
 </style>
