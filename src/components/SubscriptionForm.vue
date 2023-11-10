@@ -1,11 +1,14 @@
 <script setup lang="ts">
-
+enum InterfaceTexts {
+  Placeholder = 'Enter RSS feed URL',
+  AddButton = 'Add Feed',
+}
 </script>
 
 <template>
   <form class="form">
-    <input type="url" placeholder="Enter RSS feed URL" />
-    <button type="submit">Add Feed</button>
+    <input type="url" :placeholder="InterfaceTexts.Placeholder" />
+    <button type="submit">{{ InterfaceTexts.AddButton }}</button>
   </form>
 </template>
 
