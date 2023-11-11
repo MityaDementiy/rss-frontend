@@ -18,16 +18,31 @@ enum InterfaceTexts {
 </script>
 
 <template>
-  <div class="formWrapper">
-    <form class="form" @submit="submitChannel">
-      <input type='url' v-model="newChannelUrl" :disabled="!!channelsStore.errorsCount"  :placeholder='InterfaceTexts.Placeholder' />
-      <button type='submit' :disabled="!!channelsStore.errorsCount">{{ InterfaceTexts.AddButton }}</button>
+  <div class='formWrapper'>
+    <form class='form' @submit='submitChannel'>
+      <input 
+        type='url' 
+        v-model='newChannelUrl' 
+        :disabled='!!channelsStore.errorsCount'  
+        :placeholder='InterfaceTexts.Placeholder' 
+      />
+      <button 
+        type='submit' 
+        :disabled='!!channelsStore.errorsCount'
+      >
+        {{ InterfaceTexts.AddButton }}
+      </button>
     </form>
-    <div class="formErrors" v-if="!!channelsStore.errorsCount">
-      <ul class="errorsList">
-        <li v-for="error in channelsStore.errors" :key="error">{{ error }}</li>
+    <div class='formErrors' v-if='!!channelsStore.errorsCount'>
+      <ul class='errorsList'>
+        <li v-for='error in channelsStore.errors' :key='error'>{{ error }}</li>
       </ul>
-      <button @click="channelsStore.clearErrors" class="errorClearButton">Got It!</button>
+      <button 
+        @click='channelsStore.clearErrors' 
+        class='errorClearButton'
+      >
+        Got It!
+      </button>
     </div>
   </div>
 </template>

@@ -10,5 +10,12 @@ module.exports = {
   ],
   parserOptions: {
     ecmaVersion: 'latest'
+  },
+  rules: {
+    'max-len': ['error', { 'code': 80 }],
+    'quotes': ['error', 'single'],
+    'vue/html-quotes': ['error', 'single'],
+    'indent': ['error', 2],
+    'vue/html-indent': ['error', 2]
   }
 }

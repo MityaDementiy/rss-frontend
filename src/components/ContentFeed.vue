@@ -11,11 +11,15 @@ enum InterfaceTexts {
 </script>
 
 <template>
-<div>
-  <h2 class='feedHeader'>{{ InterfaceTexts.FeedSectionTitle }}</h2>
-  <div v-if="channelsStore.channelsCount">{{ InterfaceTexts.PendingFeedFunctionalityPlaceholder }}</div>
-  <div v-else>{{ InterfaceTexts.NoSubscriptionsPlaceholder }}</div>
-</div>
+  <div>
+    <h2 class='feedHeader'>{{ InterfaceTexts.FeedSectionTitle }}</h2>
+    <div 
+      v-if='channelsStore.channelsCount'
+    >
+      {{ InterfaceTexts.PendingFeedFunctionalityPlaceholder }}
+    </div>
+    <div v-else>{{ InterfaceTexts.NoSubscriptionsPlaceholder }}</div>
+  </div>
 </template>
 
 <style scoped>
