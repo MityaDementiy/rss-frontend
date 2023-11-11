@@ -14,6 +14,7 @@ const submitChannel = (event: Event) => {
 enum InterfaceTexts {
   Placeholder = 'Enter RSS feed URL',
   AddButton = 'Add Feed',
+  GotItButton = 'Got It!',
 }
 </script>
 
@@ -41,7 +42,7 @@ enum InterfaceTexts {
         @click='channelsStore.clearErrors' 
         class='errorClearButton'
       >
-        Got It!
+        {{ InterfaceTexts.GotItButton }}
       </button>
     </div>
   </div>
