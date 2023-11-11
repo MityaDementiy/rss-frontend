@@ -8,7 +8,7 @@ make build:
 	npm run build
 
 make test:
-	npm run test:unit
+	npm run test
 
 make test-watch:
 	npm run test:watch

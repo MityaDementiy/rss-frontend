@@ -2,6 +2,10 @@
 
 This project is for reading RSS feeds.
 
+## Status Badges
+
+[![Node.js CI](https://github.com/MityaDementiy/rss-frontend/actions/workflows/node.js.yml/badge.svg)](https://github.com/MityaDementiy/rss-frontend/actions/workflows/node.js.yml)
+
 ## Installation
 
 To install the project dependencies, run the following command:
