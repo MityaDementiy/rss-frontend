@@ -4,13 +4,13 @@ install:
 start:
 	npm run dev
 
-make build:
+build:
 	npm run build
 
-make test:
+test:
 	npm run test
 
-make test-watch:
+test-watch:
 	npm run test:watch
 
 lint:

@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useTranslation } from 'i18next-vue';
+
 import { useChannelsStore } from '@/stores/ChannelsStore';
+import FormErrors from './FormErrors.vue';
 
 const channelsStore = useChannelsStore();
 const newChannelUrl = ref('');
@@ -11,11 +14,12 @@ const submitChannel = (event: Event) => {
   newChannelUrl.value = '';
 };
 
-enum InterfaceTexts {
-  Placeholder = 'Enter RSS feed URL',
-  AddButton = 'Add Feed',
-  GotItButton = 'Got It!',
+enum TextKeys {
+  Placeholder = 'subscriptionForm.inputPlaceholder',
+  SubmitButton = 'subscriptionForm.submitButton',
 }
+
+const { t } = useTranslation();
 </script>
 
 <template>
@@ -25,26 +29,16 @@ enum InterfaceTexts {
         type='url' 
         v-model='newChannelUrl' 
         :disabled='!!channelsStore.errorsCount'  
-        :placeholder='InterfaceTexts.Placeholder' 
+        :placeholder='t(TextKeys.Placeholder)'
       />
       <button 
         type='submit' 
         :disabled='!!channelsStore.errorsCount'
       >
-        {{ InterfaceTexts.AddButton }}
+        {{ t(TextKeys.SubmitButton) }}
       </button>
     </form>
-    <div class='formErrors' v-if='!!channelsStore.errorsCount'>
-      <ul class='errorsList'>
-        <li v-for='error in channelsStore.errors' :key='error'>{{ error }}</li>
-      </ul>
-      <button 
-        @click='channelsStore.clearErrors' 
-        class='errorClearButton'
-      >
-        {{ InterfaceTexts.GotItButton }}
-      </button>
-    </div>
+    <FormErrors />
   </div>
 </template>
 
@@ -61,23 +55,4 @@ enum InterfaceTexts {
 
   margin-bottom: 1.6rem;
 }
-
-.formErrors {
-  position: absolute;
-  top: 1.6rem;
-
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.errorsList {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-
-  font-size: 0.8rem;
-  color: red;
-}
-
 </style>

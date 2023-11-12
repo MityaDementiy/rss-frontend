@@ -1,10 +1,12 @@
 import { defineStore } from 'pinia';
+import i18next from 'i18next';
 
-enum Errors {
-  ChannelAlreadySubscribed = 'This channel is already subscribed',
+enum TextKeys {
+  ChannelAlreadySubscribed = 'formErrors.channelAlreadySubscribed',
+  StoreName = 'ChannelsStore',
 }
 
-export const useChannelsStore = defineStore('ChannelsStore', {
+export const useChannelsStore = defineStore(TextKeys.StoreName, {
   state: (): { channels: Array<string>, errors: Array<string> } => ({
     channels: [],
     errors: [],
@@ -16,7 +18,7 @@ export const useChannelsStore = defineStore('ChannelsStore', {
     },
     addChannel(channel: string) {
       if (this.channels.includes(channel)) {
-        this.errors.push(Errors.ChannelAlreadySubscribed);
+        this.errors.push(i18next.t(TextKeys.ChannelAlreadySubscribed));
         return;
       }
 
