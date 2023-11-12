@@ -1,24 +1,26 @@
 <script setup lang="ts">
+import { useTranslation } from 'i18next-vue';
 import { useChannelsStore } from '@/stores/ChannelsStore';
 
 const channelsStore = useChannelsStore();
 
-enum InterfaceTexts {
-  NoSubscriptionsPlaceholder = 'Add a feed to get started',
-  PendingFeedFunctionalityPlaceholder = 'Feed functionality is pending',
-  FeedSectionTitle = 'My Feeds',
+enum TextKeys {
+  NoSubscriptionsPlaceholder = 'contentFeed.noSubscriptions',
+  PendingFeedFunctionalityPlaceholder = 'contentFeed.pendingFunctionality',
+  FeedSectionTitle = 'contentFeed.feedSectionTitle',
 }
+const { t } = useTranslation();
 </script>
 
 <template>
   <div>
-    <h2 class='feedHeader'>{{ InterfaceTexts.FeedSectionTitle }}</h2>
+    <h2 class='feedHeader'>{{ t(TextKeys.FeedSectionTitle) }}</h2>
     <div 
       v-if='channelsStore.channelsCount'
     >
-      {{ InterfaceTexts.PendingFeedFunctionalityPlaceholder }}
+      {{ t(TextKeys.PendingFeedFunctionalityPlaceholder) }}
     </div>
-    <div v-else>{{ InterfaceTexts.NoSubscriptionsPlaceholder }}</div>
+    <div v-else>{{ t(TextKeys.NoSubscriptionsPlaceholder) }}</div>
   </div>
 </template>
 
